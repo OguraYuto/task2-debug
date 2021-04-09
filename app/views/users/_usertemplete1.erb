@@ -1,0 +1,26 @@
+  
+  <!-- @user → user -->
+   <!--ユーザー画面ページ ここから -->
+ <h2 style="user-select: auto;">User info</h2>
+   <div><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></div>
+   <table class="table" style="user-select: auto;">
+      <tbody style="user-select: auto;"><tr style="user-select: auto;"></tr>
+       <tr style="user-select: auto;">
+	      <th style="user-select: auto;">name</th>
+	      <th style="user-select: auto;"><%= user.name %></th>
+       </tr>
+      <tr style="user-select: auto;">
+	      <th style="user-select: auto;">introduction</th>
+	      <th style="user-select: auto;"><%= user.introduction %>ここきく</th>
+      </tr>
+    </tbody>
+  </table>
+　<!--ユーザー画面ページ ここまで -->
+　<!--編集ボタン-->
+<div class="row" style="user-select: auto;">
+  <div class="btn btn-outline-secondary btn-block fas fa-user-cog" style="user-select: auto;">
+    <%= link_to "#", edit_user_path(user) %>
+  </div>
+</div>
+   
+ <!--編集ボタン-->

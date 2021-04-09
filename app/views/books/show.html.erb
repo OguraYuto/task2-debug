@@ -1,0 +1,61 @@
+<main style="user-select: auto;">
+        <p id="notice" style="user-select: auto;"><%= flash[:notice] %></p>
+        <div class="container px-5 px-sm-0" style="user-select: auto;">
+          <div class="row" style="user-select: auto;">
+            <div class="col-md-3" style="user-select: auto;">
+
+<!--ユーザー画面ページのテンプレート使用      -->
+<%= render 'users/usertemplete1', user: @user %>
+<!--ユーザー画面ページのテンプレート使用
+
+<!--~投稿フォーム部分テンプレート使用〜-->
+ <%= render 'books/booktemplete1', book: @book %>
+<!--~投稿フォーム部分テンプレート使用〜-->
+
+<!--投稿内容本文-->
+  <div class="col-md-8 offset-md-1" style="user-select: auto;">
+  		<h2 style="user-select: auto;">Book detail</h2>
+      	<table class="table" style="user-select: auto;">
+  		    <tbody style="user-select: auto;">
+  		      <tr style="user-select: auto;">
+
+　　　　  　  <td style="user-select: auto;">
+　　　　　　     <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image2.jpg" %>
+　　　　　　      <br style="user-select: auto;">
+　　　　　　  <%= link_to @user.name,user_path(@user.id) %>
+              </td>
+
+             <td style="user-select: auto;">
+              <div><%= link_to @book.title,edit_book_path(@book.id) %></div>
+             </td>
+
+             <td style="user-select: auto;">
+               <%= @book.body %>
+               </td>
+
+             <td style="user-select: auto;">
+               <div class="btn btn-sm btn-success">
+              <%= link_to "Edit",edit_book_path(@book.id) %>
+               </div>
+             </td>
+
+             <td style="user-select: auto;">
+               <div class="btn btn-sm btn-danger">
+             <%= link_to "Destroy", destroy_book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+               </div>
+            </td>
+
+            </tr>
+　　　　　</tbody>
+　　　　</table>
+     </div>
+
+     </div>
+    </div>
+  </div>
+ </main>
+ 
+ 
+ <!--footerのテンプレート使用      -->
+<%= render 'users/footer' %>
+<!--footerのテンプレート使用     

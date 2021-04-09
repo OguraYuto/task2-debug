@@ -1,0 +1,45 @@
+<main style="user-select: auto;">
+        <p id="notice" style="user-select: auto;"></p>
+        <div class="container" style="user-select: auto;">
+  <div class="row" style="user-select: auto;">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0" style="user-select: auto;">
+      <h2 style="user-select: auto;">Log in</h2>
+      <form action="/users/sign_in" accept-charset="UTF-8" method="post" style="user-select: auto;"><input name="utf8" type="hidden" value="✓" style="user-select: auto;"><input type="hidden" name="authenticity_token" value="Rvt2YHK1ICejMaPqcE1v1aF034w0C6VnUIWRYeHomolp+QKSzuJCgaUsu45wGuEK3/k0y0qUuQ0UnVkzN10JVg==" style="user-select: auto;">
+
+<%= form_with model: @user, url: user_session_path, local: true do |f| %>
+
+   <div class="field" style="user-select: auto;">
+          <label for="user_name" style="user-select: auto;">Name</label><br style="user-select: auto;">
+          <input autofocus="autofocus" class="name" type="text" name="user[name]" id="user_name" style="user-select: auto;">
+        </div>
+        <div class="field" style="user-select: auto;">
+          <label for="user_password" style="user-select: auto;">Password</label><br style="user-select: auto;">
+          <input autocomplete="off" class="password" type="password" name="user[password]" id="user_password" style="user-select: auto;">
+        </div>
+          <div class="field" style="user-select: auto;">
+            <input name="user[remember_me]" type="hidden" value="0" style="user-select: auto;"><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me" style="user-select: auto;">
+            <label for="user_remember_me" style="user-select: auto;">Remember me</label>
+          </div>
+        <div class="actions" style="user-select: auto;">
+          <input type="submit" name="commit" value="Log in" class="btn btn-sm btn-primary" data-disable-with="Log in" style="user-select: auto;">
+        </div>
+<% end %>
+<a href="/users/sign_up" style="user-select: auto;">Sign up</a><br style="user-select: auto;">
+
+ <a href="/users/password/new" style="user-select: auto;">Forgot your password?</a><br style="user-select: auto;">
+
+</div>
+</div>
+</div>
+</main>
+
+<footer style="user-select: auto;">
+  <div class="container mt-5" style="user-select: auto;">
+  	<div class="row" style="user-select: auto;">
+    	<div class="mx-auto" style="user-select: auto;">
+    		<p style="user-select: auto;">CopyRight Infratop.inc</p>
+    	</div>
+    </div>
+  </div>
+</footer>
+

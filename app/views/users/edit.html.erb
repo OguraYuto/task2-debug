@@ -1,0 +1,43 @@
+
+<main style="user-select: auto;">
+<p id="notice" style="user-select: auto;"></p>
+ <div class="container" style="user-select: auto;">
+  <div class="row" style="user-select: auto;">
+   <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto" style="user-select: auto;">
+
+<!--~ここから編集フォーム〜-->
+    <h2 style="user-select: auto;">User info</h2>
+        <%= form_with model:@user, local:true do |f| %>
+
+      <div class="form-group" style="user-select: auto;">
+       <label for="user_name" style="user-select: auto;">Name</label>
+　　   <div><%= f.text_field :name, autofocus: true, id:"inputName", size: 40%></div>
+      </div>
+
+  　   <div class="form-group" style="user-select: auto;">
+  　   <div>  <label for="user_image" style="user-select: auto;">Image</label></div>
+  　    <div><%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %></div>
+  　　</div>
+
+  　　<div class="form-group" style="user-select: auto;">
+  　<div><label for="user_introduction" style="user-select: auto;">Introduction</label></div>
+      <div><%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", size: "40x5" %></div>
+  　　</div>
+
+  　　<div class="form-group" style="user-select: auto;">
+       <input type="submit" name="commit" value="Update User" class="btn btn-secondary" data-disable-with="Update User" style="user-select: auto;">
+      </div>
+
+     <% end %>
+<!--ここまで編集フォーム-->
+
+    </div>
+ </div>
+</div>
+</main>
+
+
+
+<!--footerのテンプレート使用      -->
+<%= render 'users/footer' %>
+<!--footerのテンプレート使用

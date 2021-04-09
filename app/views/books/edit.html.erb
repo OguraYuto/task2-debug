@@ -1,0 +1,43 @@
+<main style="user-select: auto;">
+        <p id="notice" style="user-select: auto;"></p>
+        <div class="container" style="user-select: auto;">
+  <div class="row" style="user-select: auto;">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto" style="user-select: auto;">
+  		<h1 style="user-select: auto;">Editing Book</h1>
+    	
+    	 <%= form_with model:@book, local: true do |f| %>
+    	
+  <div class="form-group" style="user-select: auto;">
+    <label for="book_title" style="user-select: auto;">
+      <%= f.label :Title%>
+    </label>
+     <div><%= f.text_field :title ,  size: 40 %></div>
+  </div>
+  	
+  <div class="form-group" style="user-select: auto;">
+    <label for="book_opinion" style="user-select: auto;">
+      Opinion
+    </label>
+  　 <div><%= f.text_area :body, size: "40x5" %></div>
+  </div>
+  
+  <div class="form-group" style="user-select: auto;">
+    <input type="submit" name="commit" value="Update Book" class="btn btn-success" data-disable-with="Update Book" style="user-select: auto;">
+  </div>
+  <% end %>
+
+	<span>
+ 　<%= link_to "Show",book_path(@book.id) %>
+ |
+   <a href="/books">Back</a>
+  </span>
+  
+  
+  　</div>
+　</div>
+</div>
+</main>
+
+<!--footerのテンプレート使用      -->
+<%= render 'users/footer' %>
+<!--footerのテンプレート使用     
