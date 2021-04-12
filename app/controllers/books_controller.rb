@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
 
+ before_action :baria_user, only: [:edit, :destroy, :update] #berore_actionはコントローラすべてのアクションが実行される前に実行されるもの
+
   def index
     @book = Book.new
     @books = Book.all
@@ -7,8 +9,10 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
+    @book = Book.new
+    @book1 = Book.find(params[:id])
     @user = current_user
+    @user1 = @book1.user
   end
 
   def create
@@ -18,12 +22,14 @@ class BooksController < ApplicationController
       flash[:notice] = "You have created book successfully."
       redirect_to book_path(@book.id)
    else
-       @books =Book.all
-       render "index"  # ルーティングを通らず、viewページに飛ぶ。アクション無視
+    @books = Book.all
+    @user = current_user
+    render "index"  # ルーティングを通らず、viewページに飛ぶ。アクション無視
    end
   end
 
   def edit
+    @user = current_user
     @book = Book.find(params[:id])
   end
 
@@ -33,20 +39,26 @@ class BooksController < ApplicationController
       flash[:notice] = "You have updated book successfully."
     redirect_to book_path(@book.id)
    else
-    @books = Book.all
     render "edit"
    end
-  end 
+  end
 
   def destroy
     book = Book.find(params[:id]) # データ（レコード）を1件取得
     book.destroy
-    redirect_to books_path(book.id)
+    redirect_to books_path
   end
 
  private
   def book_params
-    params.require(:book).permit(:title,:body)
+    params.require(:book).permit(:title, :body)
+  end
+
+  def baria_user
+     @book1 = Book.find(params[:id])
+     unless @book1.user_id == current_user.id
+     redirect_to books_path
+     end
   end
 
 end

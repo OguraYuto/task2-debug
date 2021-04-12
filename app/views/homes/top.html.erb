@@ -1,5 +1,5 @@
 <main style="user-select: auto;">
-        <!--<p id="notice" style="user-select: auto;">Signed out successfully.</p>-->
+        <p id="notice" style="user-select: auto;"><%= flash[:notice] %></p>
         <div class="container" style="user-select: auto;">
   <div class="row" style="user-select: auto;">
     <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6" style="user-select: auto;">
@@ -20,12 +20,7 @@
 </div>
 </main>
 
-<footer style="user-select: auto;">
-  <div class="container mt-5" style="user-select: auto;">
-  	<div class="row" style="user-select: auto;">
-    	<div class="mx-auto" style="user-select: auto;">
-    		<p style="user-select: auto;">CopyRight Infratop.inc</p>
-    	</div>
-    </div>
-  </div>
-</footer>
+ 
+ <!--footerのテンプレート使用      -->
+<%= render 'users/footer' %>
+<!--footerのテンプレート使用     

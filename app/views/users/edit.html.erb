@@ -7,6 +7,18 @@
 
 <!--~ここから編集フォーム〜-->
     <h2 style="user-select: auto;">User info</h2>
+    
+      <div id="error_explanation" style="user-select: auto;">
+            <% if @user.errors.any? %>
+            <h3><%= @user.errors.count %>errors prohibited this obj from being saved:</h3>
+            <ul style="user-select: auto;">
+             <% @user.errors.full_messages.each do |message| %>
+             <%= message %>
+             <% end %>
+            </ul>
+            <% end %>
+             </div>
+    
         <%= form_with model:@user, local:true do |f| %>
 
       <div class="form-group" style="user-select: auto;">

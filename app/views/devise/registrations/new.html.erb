@@ -5,40 +5,39 @@
   <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0" style="user-select: auto;">
   <h2 style="user-select: auto;">Sign up</h2>
 
- <form id="new_user" class="new_user" action="/users" accept-charset="UTF-8" method="post" style="user-select: auto;"><input name="utf8" type="hidden" value="✓" style="user-select: auto;"><input type="hidden" name="authenticity_token" value="/pCzoOc9ScEJR6B5EJnZ6dqQKxusmcslWFbm6wvoySfwAXa35nf4PyuDIcij80LC/n3+0QrSTkkpIp27Ix721A==" style="user-select: auto;"><%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field" style="user-select: auto;">
-    <label for="user_name" style="user-select: auto;">Name</label><br style="user-select: auto;">
-    <input autofocus="autofocus" class="name" type="text" name="user[name]" id="user_name" style="user-select: auto;">
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
   </div>
 
-   <div class="field" style="user-select: auto;">
-   <label for="user_email" style="user-select: auto;">Email</label><br style="user-select: auto;">
-  <input autofocus="autofocus" class="email" type="email" value="" name="user[email]" id="user_email" style="user-select: auto;">
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field" style="user-select: auto;">
-    <label for="user_password" style="user-select: auto;">Password</label>
-  <em style="user-select: auto;">(6 characters minimum)</em>
-  <br style="user-select: auto;">
-  <input autocomplete="off" class="password" type="password" name="user[password]" id="user_password" style="user-select: auto;">
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
-  <div class="field" style="user-select: auto;">
-    <label for="user_password_confirmation" style="user-select: auto;">Password confirmation</label><br style="user-select: auto;">
-  <input autocomplete="off" class="password_confirm" type="password" name="user[password_confirmation]" id="user_password_confirmation" style="user-select: auto;">
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="actions" style="user-select: auto;">
-    <input type="submit" name="commit" value="Sign up" class="btn btn-sm btn-success" data-disable-with="Sign up" style="user-select: auto;">
+  <div class="actions">
+    <%= f.submit "Sign up", class: "btn btn-success"  %>
   </div>
-
-  <a href="/users/sign_in" style="user-select: auto;">Log in</a><br style="user-select: auto;">
-</form>
-
 <% end %>
+
+<%= render "devise/shared/links" %>
+
 </div>
 </div>
 </div>
@@ -47,12 +46,7 @@
 
 
 
-<footer style="user-select: auto;">
-  <div class="container mt-5" style="user-select: auto;">
-  	<div class="row" style="user-select: auto;">
-    	<div class="mx-auto" style="user-select: auto;">
-    		<p style="user-select: auto;">CopyRight Infratop.inc</p>
-    	</div>
-    </div>
-  </div>
-</footer>
+
+ <!--footerのテンプレート使用      -->
+<%= render 'users/footer' %>
+<!--footerのテンプレート使用
